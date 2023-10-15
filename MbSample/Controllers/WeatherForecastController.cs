@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MbSample.Hubs;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 
 namespace MbSample.Controllers
 {
@@ -12,10 +14,12 @@ namespace MbSample.Controllers
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IHubContext<WeatherHub> _hubContext;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IHubContext<WeatherHub> hubContext)
         {
             _logger = logger;
+            _hubContext = hubContext;
         }
 
         [HttpGet]
@@ -29,5 +33,19 @@ namespace MbSample.Controllers
             })
             .ToArray();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddWeatherForecast(WeatherForecast forecast)
+        {
+            if (forecast == null)
+            {
+                return BadRequest();
+            }
+
+            await _hubContext.Clients.All.SendAsync("WeatherUpdated", forecast);
+
+            return Ok(forecast);
+        }
+
     }
 }
