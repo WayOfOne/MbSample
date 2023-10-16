@@ -1,0 +1,64 @@
+{
+	"port": 9090,
+	"protocol": "http",
+	"name": "Weather API",
+	"stubs": [
+		{
+			"responses": [
+				{
+					"is": {
+						"headers": {
+							"Content-Type": "text/plain"
+						},
+						"statusCode": 200,
+						"body": [
+							{
+								"date": "?",
+								"temperatureC": 0,
+								"temperatureF": 0,
+								"summary": "?"
+							}
+						]
+					}
+				}
+			],
+			"predicates": [
+				{
+					"equals": {
+						"method": "GET"
+					}
+				},
+				{
+					"matches": {
+						"path": "/WeatherForecast"
+					}
+				}
+			]
+		},
+		{
+			"responses": [
+				{
+					"is": {
+						"headers": {
+							"Content-Type": "?"
+						},
+						"statusCode": 200,
+						"body": "?"
+					}
+				}
+			],
+			"predicates": [
+				{
+					"equals": {
+						"method": "POST"
+					}
+				},
+				{
+					"matches": {
+						"path": "/WeatherForecast"
+					}
+				}
+			]
+		}
+	]
+}
