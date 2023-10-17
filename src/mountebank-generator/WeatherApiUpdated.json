@@ -1,0 +1,126 @@
+{
+  "imposters": [
+    {
+      "port": 57164,
+      "protocol": "http",
+      "name": "Weather API",
+      "stubs": [
+        {
+          "responses": [
+            {
+              "is": {
+                "headers": {
+                  "Content-Type": "text/plain"
+                },
+                "statusCode": 200,
+                "body": [
+                  {
+                    "date": "2023-10-17T23:27:04.2578034-07:00",
+                    "temperatureC": 34,
+                    "temperatureF": 93,
+                    "summary": "Warm"
+                  }
+                ]
+              }
+            }
+          ],
+          "predicates": [
+            {
+              "equals": {
+                "method": "GET"
+              }
+            },
+            {
+              "matches": {
+                "path": "/WeatherForecast"
+              }
+            }
+          ]
+        },
+        {
+          "responses": [
+            {
+              "is": {
+                "headers": {
+                  "Content-Type": "?"
+                },
+                "statusCode": 200,
+                "body": [
+                  {
+                    "date": "2023-10-17T06:28:47.147Z",
+                    "temperatureC": 76,
+                    "temperatureF": 168,
+                    "summary": "Dummy"
+                  }
+                ]
+              }
+            }
+          ],
+          "predicates": [
+            {
+              "equals": {
+                "method": "POST"
+              }
+            },
+            {
+              "matches": {
+                "path": "/WeatherForecast"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": 7064,
+      "protocol": "https",
+      "name": "weatherhub",
+      "key": "-----BEGIN RSA PRIVATE KEY-----\nMIICXAIBAAKBgQCrvse04YkxtVGagyvGJCsvv7LTfLK5uR/ZIJKDYCnuF+BqBzM4\nlko8O39vx+Lz9FfF11Xl+CN1aY37YurLYOle3dC/qslSbQDe2TJN7lcVHVssePvc\nO5IExpvNFV5LYtmyCMKJHxpnIprv/trUso5obqzzXhFVPV9SQbFH/snInwIDAQAB\nAoGARywlqLD6YO4qJiULw+4DM6N2oSwBCPRN3XYhIW59kdy1NFtNf7rQgsuJUTJ9\nu+lbYnKNd2LwltyqaS4h7Sx5KRhpFNmMpyVsBf5J2q3fbfmrsXt+emY7XhVTc1NV\nizUWYyxCoTTeMWvN/6NYpPV0lSxq7jMTFVZrWQUMqJclxpECQQDTlGwALtAX1Y8u\nGKsEHPkoq9bhHA5N9WAboQ4LQCZVC8eBf/XH//2iosYTXRNgII2JLmHmmxJHo5iN\nJPFMbnoHAkEAz81osJf+yHm7PBBJP4zEWZCV25c+iJiPDpj5UoUXEbq47qVfy1mV\nDqy2zoDynAWitU7PeHyZ8ozfyribPoR2qQJAVmvMhXKZmvKnLivzRpXTC9LMzVwZ\nV6x/Wim5w8yrG5fZIMM0kEG2xwR3pZch/+SsCzl/0aLLn6lp+VT6nr6NZwJBAMxs\nHrvymoLvNeDtiJFK0nHliXafP7YyljDfDg4+vSYE0R57c1RhSQBJqgBV29TeumSw\nJes6cFuqeBE+MAJ9XxkCQDdUdhnA8HHQRNetqK7lygUep7EcHHCB6u/0FypoLw7o\nEUVo5KSEFq93UeMr3B7DDPIz3LOrFXlm7clCh1HFZhQ=\n-----END RSA PRIVATE KEY-----",
+      "cert": "-----BEGIN CERTIFICATE-----\nMIIB6TCCAVICCQCZgxbBD0CG4zANBgkqhkiG9w0BAQUFADA5MQswCQYDVQQGEwJV\nUzETMBEGA1UECBMKU29tZS1TdGF0ZTEVMBMGA1UEChMMVGhvdWdodFdvcmtzMB4X\nDTEzMTIyOTE2NDAzN1oXDTE0MDEyODE2NDAzN1owOTELMAkGA1UEBhMCVVMxEzAR\nBgNVBAgTClNvbWUtU3RhdGUxFTATBgNVBAoTDFRob3VnaHRXb3JrczCBnzANBgkq\nhkiG9w0BAQEFAAOBjQAwgYkCgYEAq77HtOGJMbVRmoMrxiQrL7+y03yyubkf2SCS\ng2Ap7hfgagczOJZKPDt/b8fi8/RXxddV5fgjdWmN+2Lqy2DpXt3Qv6rJUm0A3tky\nTe5XFR1bLHj73DuSBMabzRVeS2LZsgjCiR8aZyKa7/7a1LKOaG6s814RVT1fUkGx\nR/7JyJ8CAwEAATANBgkqhkiG9w0BAQUFAAOBgQCPhixeKxIy+ftrfPikwjYo1uxp\ngQ18FdVN1pbI//IIx1o8kJuX8yZzO95PsCOU0GbIRCkFMhBlqHiD9H0/W/GvWzjf\n7WFW15lL61y/kH1J0wqEgoaMrUDjHZvKVr0HrN+vSxHlNQcSNFJ2KdvZ5a9dhpGf\nXOdprCdUUXzSoJWCCg==\n-----END CERTIFICATE-----",
+      "stubs": [
+        {
+          "responses": [
+            {
+              "is": {
+                "statusCode": 200,
+                "headers": {
+                    "Access-Control-Allow-Origin": "http://localhost:4200",
+                    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+                    "Access-Control-Allow-Credentials": "true"
+                  },
+                "body": {
+                  "negotiateVersion": 1,
+                  "connectionId": "why8XXU_lt3olXHPuY55rw",
+                  "connectionToken": "75k_URXd78GLHS4U0ydRlQ",
+                  "availableTransports": [
+                    {
+                      "transport": "WebSockets",
+                      "transferFormats": ["Text", "Binary"]
+                    },
+                    {
+                      "transport": "ServerSentEvents",
+                      "transferFormats": ["Text"]
+                    },
+                    {
+                      "transport": "LongPolling",
+                      "transferFormats": ["Text", "Binary"]
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "predicates": [
+            {
+              "equals": {
+                "method": "POST",
+                "path": "/weatherhub/negotiate"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
