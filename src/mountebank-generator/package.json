@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "run-mb": "node runMb.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,7 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "fs-extra": "10.0.0",
-    "swagger-parser": "10.0.2",
-    "mountebank-openapi-formatter": "github:kaiquekk-opus/mountebank-openapi-formatter"
+    "mountebank-openapi-formatter": "github:kaiquekk-opus/mountebank-openapi-formatter",
+    "swagger-parser": "10.0.2"
+  },
+  "devDependencies": {
+    "mountebank": "^2.9.1"
   }
 }
